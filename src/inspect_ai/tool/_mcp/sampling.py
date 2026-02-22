@@ -117,9 +117,7 @@ def as_inspect_content(
     if isinstance(content, TextContent):
         return ContentText(text=content.text)
     elif isinstance(content, ImageContent):
-        return ContentImage(
-            image=f"data:{content.mimeType};base64,{content.data}"
-        )
+        return ContentImage(image=f"data:{content.mimeType};base64,{content.data}")
     elif isinstance(content, AudioContent):
         return ContentAudio(
             audio=f"data:{content.mimeType};base64,{content.data}",
