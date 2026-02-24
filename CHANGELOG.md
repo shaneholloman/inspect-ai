@@ -1,3 +1,7 @@
+## Unreleased
+
+- AzureAI: Pass `max_completion_tokens` to gpt-5 and o-series models.
+
 ## 0.3.181 (23 February 2026)
 
 - Hooks: New `on_sample_init()` hook that fires before sandbox environments are created, enabling hooks to gate sandbox resource provisioning.
