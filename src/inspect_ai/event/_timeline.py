@@ -270,12 +270,37 @@ class Timeline(BaseModel):
 
 
 def timeline_dump(timeline: Timeline) -> dict[str, Any]:
-    """Serialize a Timeline to a dict with event UUIDs."""
+    """Serialize a Timeline to a JSON-compatible dict.
+
+    Converts a Timeline into a plain dictionary suitable for JSON
+    serialization. Event objects within the timeline are replaced by
+    their UUIDs, keeping the serialized form compact and
+    self-referencing.
+
+    Args:
+        timeline: The Timeline to serialize.
+
+    Returns:
+        A dict representation of the timeline, with events stored
+        as UUID strings rather than full Event objects.
+    """
     return timeline.model_dump()
 
 
 def timeline_load(data: dict[str, Any], events: list[Event]) -> Timeline:
-    """Deserialize a Timeline dict, resolving event UUIDs to Event objects."""
+    """Deserialize a Timeline from a dict produced by `timeline_dump`.
+
+    Reconstructs a full Timeline by resolving the UUID strings stored
+    in `data` back to their corresponding Event objects from `events`.
+
+    Args:
+        data: A dict previously produced by `timeline_dump`.
+        events: The flat list of Event objects whose UUIDs appear in
+            `data`. Events without a UUID are ignored.
+
+    Returns:
+        A fully hydrated Timeline with Event references restored.
+    """
     events_by_uuid = {e.uuid: e for e in events if e.uuid}
     return Timeline.model_validate(data, context={"events_by_uuid": events_by_uuid})
 

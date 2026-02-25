@@ -12,7 +12,7 @@
 
 - name: "[Petri](https://safety-research.github.io/petri/)"
   description: |
-    Framework for rapidly testing concrete alignment hypotheses end‑to‑end, including automatic generation of realistic audit scenarios.
+    Framework testing alignment hypotheses end‑to‑end, including automatic scenario generation.
   author: "[Anthropic](https://www.anthropic.com/research/petri-open-source-auditing)"
   categories: ["Frameworks"]
 
@@ -54,7 +54,7 @@
 
 - name: "[Inspect Flow](https://meridianlabs-ai.github.io/inspect_flow/)"
   description: |
-    Workflow orchestration for running Inspect evaluations at scale with repeatability and maintainability.
+    Workflow orchestration for reprocibly running evals at scale.
   author: "[Meridian](https://github.com/meridianlabs-ai/inspect_flow)"
   categories: ["Tooling"]
 
@@ -72,7 +72,7 @@
 
 - name: "[Inspect Evals](https://ukgovernmentbeis.github.io/inspect_evals/)"
   description: |
-    Community-contributed library of LLM evaluations covering safety, coding, reasoning, knowledge, and agent capabilities.
+    Over 1000 LLM evaluations covering safety, coding, reasoning, knowledge, and agent capabilities.
   author: "[UK AISI](https://github.com/UKGovernmentBEIS/inspect_evals)"
   categories: ["Evals"]
 
@@ -101,19 +101,19 @@
   categories: ["Sandboxes"]
 
 - name: "[Proxmox Sandbox](https://github.com/UKGovernmentBEIS/inspect_proxmox_sandbox)"
-  description: Use virtual machines, running within a [Proxmox](https://www.proxmox.com/en/products/proxmox-virtual-environment/overview) instance, as Inspect sandboxes.
+  description: Use virtual machines, running within a Proxmox instance, as Inspect sandboxes.
   author: "[UK AISI](https://github.com/UKGovernmentBEIS/inspect_proxmox_sandbox)"
   categories: ["Sandboxes"]
 
 - name: "[Inspect Policy Sandbox](https://github.com/Dedulus/inspect-policy-sandbox)"
   description: |
-    Policy enforced sandbox wrapper for Inspect AI that allows fine grained control
-    over command execution and file I/O without modifying core sandbox backends.
+    Sandbox wrapper that allows fine grained control
+    over command execution and file I/O.
   author: "[Arnab Mitra](https://github.com/Dedulus)"
   categories: ["Sandboxes"]
 
 - name: "[Inspect Harbor](https://github.com/meridianlabs-ai/inspect_harbor)"
   description: |
-    Run Harbor RL tasks with Inspect AI, with access to 40+ registry datasets including terminal-bench, replicationbench, and compilebench.
+    Evals from Harbor framework including terminal-bench, replicationbench, and compilebench.
   author: "[Meridian](https://github.com/meridianlabs-ai/inspect_harbor)"
   categories: ["Evals"]

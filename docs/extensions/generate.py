@@ -1,8 +1,13 @@
 from pathlib import Path
 
+import re
+
 import yaml
 
-PATH = Path(__file__).parent
+try:
+    PATH = Path(__file__).parent
+except NameError:
+    PATH = Path.cwd()
 
 CATEGORY_ORDER = [
     "Sandboxes",
@@ -36,8 +41,14 @@ for cat, items in groups.items():
     for item in items:
         name = item.get("name", "").strip()
         desc = item.get("description", "").strip().replace("\n", " ")
-        author = item.get("author", "").strip()
-        lines.append(f"{name}\n:   {desc} <small>*{author}*</small>")
+        author_raw = item.get("author", "").strip()
+        # Convert markdown link to HTML <a> with no underline
+        author_match = re.match(r"\[(.+?)\]\((.+?)\)", author_raw)
+        if author_match:
+            author = f'<a href="{author_match.group(2)}" style="text-decoration:none">{author_match.group(1)}</a>'
+        else:
+            author = author_raw
+        lines.append(f'{name} &mdash; <small>{author}</small>\n:   {desc}')
         lines.append("")
     lines.append("")
 
